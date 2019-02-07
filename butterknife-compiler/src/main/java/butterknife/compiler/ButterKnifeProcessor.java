@@ -125,6 +125,7 @@ public final class ButterKnifeProcessor extends AbstractProcessor {
 
   private final RScanner rScanner = new RScanner();
 
+  //初始化操作
   @Override public synchronized void init(ProcessingEnvironment env) {
     super.init(env);
 
@@ -150,10 +151,12 @@ public final class ButterKnifeProcessor extends AbstractProcessor {
     }
   }
 
+  // 获取支持的操作集合
   @Override public Set<String> getSupportedOptions() {
     return ImmutableSet.of(OPTION_SDK_INT, OPTION_DEBUGGABLE);
   }
 
+  //获取支持大的注解类型集合
   @Override public Set<String> getSupportedAnnotationTypes() {
     Set<String> types = new LinkedHashSet<>();
     for (Class<? extends Annotation> annotation : getSupportedAnnotations()) {
@@ -162,6 +165,7 @@ public final class ButterKnifeProcessor extends AbstractProcessor {
     return types;
   }
 
+  //获取支持的注解 集合
   private Set<Class<? extends Annotation>> getSupportedAnnotations() {
     Set<Class<? extends Annotation>> annotations = new LinkedHashSet<>();
 
